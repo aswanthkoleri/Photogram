@@ -25,19 +25,8 @@
 	<div class="text-center">
 	<h2> Posts </h2>
 	</div>
-	
-	<% @posts.each do |post|%>
-	<div class="row text">
-		<div class="col-md-8 mx-auto">
-	<div class="card">
-	<%= image_tag post.image.url(:square), class: "card-img-top" %>
-	<div class="card-body">
-	<p  class= "card-title"><%= post.caption %></p>
+	<div id="posts">
+	  <%= render @posts %>
 	</div>
-	</div>
-	</div>
-	</div>
-	<hr>
-	<% end %>
-	<%= will_paginate @posts, renderer: WillPaginateInfinite::InfinitePagination %>
+	<%= will_paginate @posts %>
 </div>
