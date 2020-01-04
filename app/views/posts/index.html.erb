@@ -1,0 +1,43 @@
+<div class="container">
+<div class="text-center">
+<h2> Create Post </h2>
+</div>
+<%= form_for @post, url: posts_path, html: { multipart: true } do |f| %>
+<div class="row">
+	<div class="col">
+		<%= f.label :caption, html: { for: 'caption' } %></br>
+		<%= f.text_field :caption,  class:  'form-control', id: 'caption'  %></br>
+	</div>
+	<div class="col">		
+	 <%= f.label :image, html: { for: 'image' } %>
+ 	 <%= f.file_field :image , class: 'form-control-file', id: 'image'%>
+  	</div>
+</div>
+
+	<div class="row text-center">
+		<div class="col">
+		<%= f.submit "Add post",class: "btn btn-primary" %></br>
+		</div>
+	</div>
+<% end %>
+
+	<br> 
+	<div class="text-center">
+	<h2> Posts </h2>
+	</div>
+	
+	<% @posts.each do |post|%>
+	<div class="row text">
+		<div class="col-md-8 mx-auto">
+	<div class="card">
+	<%= image_tag post.image.url(:square), class: "card-img-top" %>
+	<div class="card-body">
+	<p  class= "card-title"><%= post.caption %></p>
+	</div>
+	</div>
+	</div>
+	</div>
+	<hr>
+	<% end %>
+	<%= will_paginate @posts, renderer: WillPaginateInfinite::InfinitePagination %>
+</div>
