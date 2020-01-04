@@ -13,7 +13,7 @@ gem 'will_paginate', '~> 3.0.5'
 # gem 'coffee-rails'
 gem 'jquery-rails'
 # For including images
-gem 'paperclip', '~> 4.2'
+gem 'paperclip', '~> 5.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
 # Use sqlite3 as the database for Active Record
